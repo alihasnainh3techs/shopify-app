@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="shopify-api-key" content="000bf150fe8c2c8a3cb17953668681ed" />
         <Script src="https://cdn.shopify.com/shopifycloud/app-bridge.js" strategy="beforeInteractive"></Script>
         <Script src="https://cdn.shopify.com/shopifycloud/polaris.js" strategy="beforeInteractive"></Script>
       </head>
