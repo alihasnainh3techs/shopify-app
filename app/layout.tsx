@@ -3,6 +3,7 @@ import { NavMenu } from "@shopify/app-bridge-react";
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import AppProvider from "@/components/app-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,14 +23,16 @@ export default function RootLayout({
         <Script src="https://cdn.shopify.com/shopifycloud/polaris.js" strategy="beforeInteractive"></Script>
       </head>
       <body>
-        <NavMenu>
-          <Link href="/" rel="home">
-            Home
-          </Link>
-          <Link href="/templates">Templates</Link>
-          <Link href="/settings">Settings</Link>
-        </NavMenu>
-        {children}
+        <AppProvider>
+          <NavMenu>
+            <Link href="/" rel="home">
+              Home
+            </Link>
+            <Link href="/templates">Templates</Link>
+            <Link href="/settings">Settings</Link>
+          </NavMenu>
+          {children}
+        </AppProvider>
       </body>
     </html>
   );
