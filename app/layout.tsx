@@ -1,16 +1,8 @@
+import Script from "next/script";
+import { NavMenu } from "@shopify/app-bridge-react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +16,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <Script src="https://cdn.shopify.com/shopifycloud/app-bridge.js" strategy="beforeInteractive"></Script>
+        <Script src="https://cdn.shopify.com/shopifycloud/polaris.js" strategy="beforeInteractive"></Script>
+      </head>
+      <body>
+        <NavMenu>
+          <Link href="/" rel="home">
+            Home
+          </Link>
+          <Link href="/templates">Templates</Link>
+          <Link href="/settings">Settings</Link>
+        </NavMenu>
         {children}
       </body>
     </html>
